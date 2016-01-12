@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <form class="input-group" action="/add" method="post">
+    <span class="input-group-btn">
+        <button class="btn btn-default" type="submit">Add</button>
+    </span>
+    </form>
+
+    <div>
+        <h2>Todo List</h2>
+        {% if todos %}
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>content</th>
+                        <th>status</th>
+                        <th>time</th>
+                        <th>operate</th>
+                    </tr>
+                </thead>
+                <tbody>
+                   {% for todo in todos %}
+                        <tr>
+                            <td>{{ todo.content }}</td>
+                        </tr>
+                   {% endfor %}
+                </tbody>
+            </table>
+    {% else %}
+            <h3 class="text-info">No todos,please add</h3>
+    {% endif %}
+
+    </div>
+{% endblock %}
+
